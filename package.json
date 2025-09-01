@@ -1,0 +1,20 @@
+{
+  "name": "tour-form-bot-new",
+  "version": "2.0.0",
+  "description": "Tour form bot - New version with Google Sheets & Rocketour integration",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sparticuz/chromium": "^114.0.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.9",
+    "puppeteer-core": "^21.6.1"
+  }
+}
