@@ -49,7 +49,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Health
-app.get("/healthz", (_, res) => res.send("OK - new form service"));
+app.get("/formnew/healthz", (_, res) => res.send("OK - new form service"));
 
 // MAIN endpoint (proxy path to this service e.g. /formnew/ -> 127.0.0.1:4001)
 app.post("/submit", async (req, res) => {
@@ -162,3 +162,4 @@ app.post("/submit", async (req, res) => {
 
 // Start server
 app.listen(PORT, () => logConsole(`NEW form service listening on port ${PORT}`));
+
