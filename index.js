@@ -114,6 +114,7 @@ async function backgroundRocketourSubmission(data, src) {
       data.tour_details,
       data.tours ? (Array.isArray(data.tours) ? data.tours.join(", ") : data.tours) : "",
       data.npart ? `מספר משתתפים: ${data.npart}` : "",
+      data.participants ? `מספר משתתפים: ${data.participants}` : "",
       src === "whatsapp" ? "נשלח מוואטסאפ" : "נשלח מהטופס",
     ].filter(Boolean).join("\n");
 
@@ -147,3 +148,4 @@ async function backgroundRocketourSubmission(data, src) {
 
 // Start server
 app.listen(PORT, () => logConsole(`NEW form service listening on port ${PORT}`));
+
