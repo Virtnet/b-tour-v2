@@ -12,7 +12,6 @@ const chromium = require("@sparticuz/chromium");
 const puppeteer = require("puppeteer-core");
 
 const app = express();
-app.set("trust proxy", true);
 
 // CONFIG - use env vars in production
 const PORT = process.env.PORT || 4001;
@@ -49,10 +48,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Health
-app.get("/formnew/healthz", (_, res) => res.send("OK - new form service"));
+app.get("/formnew/healthz", (req, res) => {
+  res.send("OK - new form servic");
+});
 
 // MAIN endpoint (proxy path to this service e.g. /formnew/ -> 127.0.0.1:4001)
-app.post("/submit", async (req, res) => {
+app.post("/formnew/submit", async (req, res) => {
   const payload = req.body || {};
   // expected fields: name,email,phone,datetour,npart,tours,tour_details,participants,source
   const source = (payload.source || "form").toString().toLowerCase(); // 'form' or 'whatsapp'
@@ -162,4 +163,5 @@ app.post("/submit", async (req, res) => {
 
 // Start server
 app.listen(PORT, () => logConsole(`NEW form service listening on port ${PORT}`));
+
 
